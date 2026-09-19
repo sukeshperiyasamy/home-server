@@ -9,7 +9,7 @@ This document outlines the phased installation lifecycle for the home server.
 * [x] **Phase 2: Infrastructure Repository** — Git setup, repository skeleton, documentation, safety checks.
 * [x] **Phase 3: Docker & Docker Compose** — Docker Engine (v29.8.1) and Compose plugin (v5.5.1) installed from official Docker repository.
 * [x] **Phase 4: Portainer CE** — Deployed Portainer CE (v2.27.1-alpine) via Docker Compose; persistent data at `/mnt/storage/app-data/portainer`; bound strictly to LAN IP.
-* [ ] **Phase 5: Tailscale** — *Not installed yet.* Encrypted mesh VPN for private remote access.
+* [x] **Phase 5: Tailscale** — Host-installed WireGuard mesh VPN (tailscaled) enabled at boot; provides encrypted zero-trust private remote access without router port forwarding.
 * [ ] **Phase 6: Core Services** — *Not installed yet.* Evaluation and deployment of lightweight services (e.g. Vaultwarden).
 * [ ] **Phase 7: Backup Framework** — *Not installed yet.* Automated configuration and database dumps.
 * [ ] **Phase 8: Disaster Recovery Verification** — *Not installed yet.* Restore validation drills.
