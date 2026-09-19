@@ -30,14 +30,18 @@ UUID=3EE45445E4540217  /mnt/storage  ntfs3  rw,uid=1000,gid=1000,dmask=0022,fmas
 * `nofail`: Prevents boot hangs if the external USB disk is disconnected.
 * `x-systemd.device-timeout=15s`: Limits systemd wait time during startup.
 
-## Directory Layout
+## Directory Layout & Container Mapping
 
 ```text
 /mnt/storage/
-├── photos/         # Photographs and raw image archives
-├── documents/      # Documents, archives, and personal records
-├── videos/         # Video media library
-├── downloads/      # Incoming and processed downloads
-├── app-data/       # Persistent container volumes and databases
-└── backups/        # Local backup archives and database dumps
+├── photos/         # Photographs and raw image archives (Mounted into File Browser: /srv/photos)
+├── documents/      # Documents and personal records (Mounted into File Browser: /srv/documents)
+├── videos/         # Video media library (Mounted into File Browser: /srv/videos)
+├── downloads/      # Incoming and processed downloads (Mounted into File Browser: /srv/downloads)
+├── app-data/       # Persistent container volumes and databases (RESTRICTED - Never mounted into File Browser)
+│   ├── portainer/  # Portainer CE state
+│   ├── vaultwarden/# Vaultwarden SQLite database and RSA keys
+│   └── filebrowser/# File Browser bbolt database and config
+└── backups/        # Local backup archives (RESTRICTED - Never mounted into File Browser)
+    └── vaultwarden/# Timestamped tarball backups
 ```

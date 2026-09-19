@@ -25,6 +25,7 @@ Due to the Raspberry Pi 3B+'s 1 GB RAM, services are introduced based on strict 
 * **Portainer CE**: Lightweight container management web UI (~30-40 MB RAM).
 * **Tailscale**: Encrypted WireGuard mesh network for zero-trust remote access (~25-35 MB RAM).
 * **Vaultwarden**: Lightweight Rust-based Bitwarden-compatible password manager (~30-50 MB RAM).
+* **File Browser**: Lightweight Go-based file manager dashboard (~25-35 MB RAM).
 
 ### Phase B: High-Resource Services (Planned for Future Laptop)
 * **Immich**: Self-hosted photo management. Requires PostgreSQL with pgvector, Redis, machine learning CLIP models, and hardware transcoding pipelines (minimum 4 GB RAM required).

@@ -37,6 +37,24 @@ services:
       # Bound strictly to Raspberry Pi Tailscale address (no public exposure)
       - "100.96.171.29:8080:80"
 
+  filebrowser:
+    image: filebrowser/filebrowser:v2.63.23
+    container_name: filebrowser
+    restart: unless-stopped
+    user: "1000:1000"
+    ports:
+      # Bound strictly to Raspberry Pi Tailscale address (no public exposure)
+      - "100.96.171.29:8082:80"
+    volumes:
+      # Data directories exposed to user (app-data and backups are strictly excluded)
+      - ${STORAGE_ROOT:-/mnt/storage}/documents:/srv/documents
+      - ${STORAGE_ROOT:-/mnt/storage}/photos:/srv/photos
+      - ${STORAGE_ROOT:-/mnt/storage}/videos:/srv/videos
+      - ${STORAGE_ROOT:-/mnt/storage}/downloads:/srv/downloads
+      # Persistent database and settings directories
+      - ${STORAGE_ROOT:-/mnt/storage}/app-data/filebrowser/database:/database
+      - ${STORAGE_ROOT:-/mnt/storage}/app-data/filebrowser/config:/config
+
 networks:
   default:
     name: home-server-network
