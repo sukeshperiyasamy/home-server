@@ -1,0 +1,33 @@
+# ==============================================================================
+# Home Server - Docker Compose Specification
+# ==============================================================================
+# This file serves as the single source of truth for services running on the
+# home server.
+#
+# NOTE: In Phase 2, this file is a skeleton placeholder. Containers (such as
+# Portainer, Tailscale, Vaultwarden, etc.) will be added in subsequent phases.
+#
+# DESIGN PRINCIPLES:
+# 1. Reproducible: Uses environment variables defined in .env
+# 2. Portable: Persistent volumes bind mount directly to ${STORAGE_ROOT}/app-data
+# 3. Pinned: Use explicit image versions rather than 'latest' where practical
+# ==============================================================================
+
+name: ${COMPOSE_PROJECT_NAME:-home-server}
+
+services:
+  # Placeholder for Phase 4: Portainer CE (Docker Management Web UI)
+  # portainer:
+  #   image: portainer/portainer-ce:2.21.5-alpine
+  #   container_name: portainer
+  #   restart: unless-stopped
+  #   ports:
+  #     - "9000:9000"
+  #     - "9443:9443"
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #     - ${STORAGE_ROOT:-/mnt/storage}/app-data/portainer:/data
+
+networks:
+  default:
+    name: home-server-network

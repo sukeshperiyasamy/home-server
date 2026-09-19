@@ -1,0 +1,34 @@
+# Secrets
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+private/
+*.secret
+
+# Private keys / certificates
+*.key
+*.pem
+*.p12
+*.pfx
+
+# SSH
+.ssh/
+id_rsa
+id_ed25519
+
+# Runtime data
+data/
+runtime/
+logs/
+
+# Local backups
+*.bak
+*.backup
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
